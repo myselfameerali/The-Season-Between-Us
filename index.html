@@ -3,120 +3,654 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Season Between Us — Complete Novel (Revised Edition)</title>
+<title>The Season Between Us — Ameer Ali</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#1c1710;--parchment:#f6f1e8;--sepia:#8c6f48;--dust:#c4a47c;--rain:#637580;--moss:#4a5c4e;--divider:rgba(140,111,72,0.2);--thought-bg:rgba(196,164,124,0.07);}
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;font-size:18px;}
-  body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Georgia,serif;line-height:1.92;overflow-x:hidden;}
-  body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.45;mix-blend-mode:multiply;}
-  .progress-strip{background:rgba(0,0,0,0.05);height:3px;position:sticky;top:0;z-index:200;}
-  .progress-fill{height:100%;background:linear-gradient(90deg,var(--sepia),var(--dust));width:0%;transition:width 0.1s linear;}
-  .cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem;position:relative;background:var(--ink);overflow:hidden;}
-  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 30%,rgba(139,111,71,0.15) 0%,transparent 70%),radial-gradient(ellipse 80% 60% at 30% 80%,rgba(107,127,138,0.1) 0%,transparent 60%);}
-  .cover-rain{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;opacity:0.07;}
-  .cover-rain::before{content:'';position:absolute;inset:-50%;background:repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(180,200,220,0.3) 3px,rgba(180,200,220,0.3) 4px);transform:rotate(15deg);animation:rain 2s linear infinite;}
-  @keyframes rain{from{transform:rotate(15deg) translateY(-50px)}to{transform:rotate(15deg) translateY(50px)}}
-  .cover-epigraph{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--dust);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:3rem;opacity:0.7;animation:fadeUp 1.5s ease forwards;}
-  .cover-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3rem,8vw,6.5rem);color:var(--parchment);line-height:1.1;text-align:center;position:relative;z-index:2;animation:fadeUp 1.5s ease 0.3s both;}
-  .cover-title span{display:block;font-style:italic;color:var(--dust);font-size:0.55em;letter-spacing:0.05em;margin-top:0.5rem;}
-  .cover-author{font-family:'EB Garamond',serif;font-size:1rem;color:var(--sepia);letter-spacing:0.3em;text-transform:uppercase;margin-top:3rem;animation:fadeUp 1.5s ease 0.6s both;}
-  .cover-divider{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--sepia),transparent);margin:2.5rem auto;animation:fadeUp 1.5s ease 0.9s both;}
-  .cover-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--dust);text-align:center;max-width:420px;line-height:1.6;opacity:0.75;animation:fadeUp 1.5s ease 1.1s both;}
-  .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);color:var(--sepia);font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;animation:fadeUp 2s ease 1.8s both,pulse 3s ease 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:0.35}50%{opacity:0.65}}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-  .book{max-width:700px;margin:0 auto;padding:0 2rem 7rem;}
-  .part-break,.part-divider{padding:6rem 0 2.5rem;text-align:center;}
-  .part-break .part-label,.part-divider .part-label{font-family:'Cormorant Garamond',serif;font-size:0.73rem;letter-spacing:0.44em;text-transform:uppercase;color:var(--sepia);opacity:0.6;}
-  .part-break h2,.part-divider h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:2.6rem;color:var(--ink);line-height:1.15;margin-top:0.7rem;}
-  .part-break .part-ornament,.part-divider .ornament{color:var(--sepia);opacity:0.3;font-size:1.1rem;letter-spacing:0.5em;margin-top:1.1rem;}
-  .chapter{padding:4.5rem 0;border-bottom:1px solid var(--divider);}
-  .epilogue{padding:5rem 0;}
-  .chapter-header,.chapter-meta{margin-bottom:2.8rem;}
-  .chapter-number,.ch-num,.ch-number{font-family:'Cormorant Garamond',serif;font-size:0.72rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--sepia);opacity:0.58;margin-bottom:0.5rem;}
-  .chapter-title,.chapter-meta h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:2rem;line-height:1.2;color:var(--ink);}
-  .chapter-location,.location{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.82rem;letter-spacing:0.17em;color:var(--rain);margin-top:0.5rem;}
-  .interlude{padding:4rem 0;border-bottom:1px solid var(--divider);}
-  .interlude-inner,.interlude-box{background:rgba(140,111,72,0.05);border-left:3px solid var(--sepia);padding:2.5rem 2.2rem 2.5rem 2.5rem;}
-  .interlude-label{font-family:'Cormorant Garamond',serif;font-size:0.72rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--sepia);opacity:0.62;margin-bottom:0.55rem;}
-  .interlude-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:1.55rem;color:var(--ink);margin-bottom:2rem;line-height:1.25;}
-  p{margin-bottom:1.55em;text-align:justify;hyphens:auto;font-feature-settings:"kern"1,"liga"1,"calt"1;}
-  .chapter>p:first-of-type::first-letter,.interlude-inner>p:first-of-type::first-letter,.interlude-box>p:first-of-type::first-letter,.epilogue>p:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:4em;float:left;line-height:0.78;margin:0.1em 0.1em 0 0;color:var(--sepia);}
-  .no-drop::first-letter{all:unset;}
-  em{font-style:italic;color:#2e2318;}
-  .thought{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.06em;color:#4e4030;margin:2.2em 0;padding:1.2em 1.5em 1.2em 1.8em;border-left:2px solid var(--dust);background:var(--thought-bg);line-height:1.78;}
-  .thought p{margin:0 0 0.75em;text-align:left;}
-  .thought p:last-child{margin:0;}
-  .thought p::first-letter{all:unset;}
-  .dialogue{margin:1.6em 0;}
-  .dialogue p{margin-bottom:0.65em;text-indent:0;text-align:left;}
-  .dialogue p::first-letter{all:unset;}
-  .epigraph{text-align:center;padding:3rem 2rem;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);margin:3.5rem 0;}
-  .epigraph p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--sepia);line-height:1.65;margin:0 0 0.5em;text-align:center;}
-  .epigraph p::first-letter{all:unset;}
-  .epigraph .attr,.epigraph-author{font-size:0.78rem;letter-spacing:0.22em;color:var(--dust);text-transform:uppercase;font-style:normal;margin-top:0.8rem !important;}
-  .section-break,.brk{text-align:center;margin:3rem 0;color:var(--sepia);opacity:0.32;letter-spacing:0.6em;font-size:0.9rem;}
-  .chapter-end,.ch-end{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--sepia);text-align:center;line-height:1.72;padding-top:2.5rem;opacity:0.87;}
-  .chapter-end::before,.ch-end::before{content:'';display:block;width:55px;height:1px;background:var(--sepia);opacity:0.35;margin:0 auto 2rem;}
-  .final-poem{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.18rem;color:var(--sepia);text-align:center;line-height:1.85;padding:3rem 1rem;opacity:0.9;}
-  .final-poem::before{content:'';display:block;width:80px;height:1px;background:var(--sepia);opacity:0.3;margin:0 auto 2.5rem;}
-  .final-poem::after{content:'';display:block;width:80px;height:1px;background:var(--sepia);opacity:0.3;margin:2.5rem auto 0;}
-  .book-footer-final{background:#111008;color:var(--sepia);text-align:center;padding:5rem 2rem 4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:1.8;position:relative;overflow:hidden;}
-  .book-footer-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(140,111,72,0.12) 0%,transparent 70%);}
-  .book-footer-final p{position:relative;z-index:2;margin:0 0 0.5em;text-align:center;}
-  .book-footer-final p::first-letter{all:unset;}
-  .book-footer-final .end-label{font-size:0.74rem;letter-spacing:0.4em;text-transform:uppercase;opacity:0.4;margin-bottom:2rem;font-style:normal;display:block;position:relative;z-index:2;}
-  .book-footer-final .manuscript-note{font-size:0.78rem;letter-spacing:0.15em;opacity:0.4;margin-top:2.5rem;font-style:normal;position:relative;z-index:2;display:block;}
-  .wc-chip{display:none;}
-  @media(max-width:640px){html{font-size:16px;}.book{padding:0 1.4rem 5rem;}.cover-title{font-size:3rem;}.chapter-meta h2,.chapter-title{font-size:1.6rem;}.chapter>p:first-of-type::first-letter{font-size:3.5em;}}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET & ROOT
+═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ink:         #1c1710;
+  --parchment:   #f6f1e8;
+  --sepia:       #8c6f48;
+  --dust:        #c4a47c;
+  --rain:        #637580;
+  --moss:        #4a5c4e;
+  --divider:     rgba(140, 111, 72, 0.2);
+  --thought-bg:  rgba(196, 164, 124, 0.07);
+  --page-width:  680px;
+  --page-pad:    2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  line-height: 1.92;
+  overflow-x: hidden;
+}
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   READING PROGRESS BAR
+═══════════════════════════════════════════════════════════════ */
+.progress-strip {
+  background: rgba(0,0,0,0.05);
+  height: 3px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sepia), var(--dust));
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COVER PAGE
+═══════════════════════════════════════════════════════════════ */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 30%, rgba(139,111,71,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 30% 80%, rgba(107,127,138,0.1) 0%, transparent 60%);
+}
+.cover-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.06;
+}
+.cover-rain::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(180,200,220,0.4) 3px,
+    rgba(180,200,220,0.4) 4px
+  );
+  transform: rotate(15deg);
+  animation: rain 2.5s linear infinite;
+}
+@keyframes rain {
+  from { transform: rotate(15deg) translateY(-60px); }
+  to   { transform: rotate(15deg) translateY(60px); }
+}
+
+.cover-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  color: var(--dust);
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 0.2s both;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  color: var(--parchment);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 0.4s both;
+}
+.cover-title span {
+  display: block;
+  font-style: italic;
+  color: var(--dust);
+  font-size: 0.5em;
+  letter-spacing: 0.06em;
+  margin-top: 0.6rem;
+}
+.cover-rule {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sepia), transparent);
+  margin: 2.2rem auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 0.7s both;
+}
+.cover-author {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: var(--sepia);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 0.9s both;
+}
+.cover-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--dust);
+  max-width: 400px;
+  line-height: 1.65;
+  opacity: 0.72;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 1.1s both;
+}
+.cover-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--sepia);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0;
+  z-index: 2;
+  animation: fadeUp 1.4s ease 1.8s both, pulse 3s ease 2.2s infinite;
+}
+@keyframes pulse  { 0%,100%{opacity:0.3} 50%{opacity:0.65} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ═══════════════════════════════════════════════════════════════
+   THE BOOK — MASTER CONTAINER
+   This is the single container that centres ALL content.
+═══════════════════════════════════════════════════════════════ */
+.book {
+  display: block;
+  width: 100%;
+  max-width: var(--page-width);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  padding-bottom: 8rem;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EPIGRAPH
+═══════════════════════════════════════════════════════════════ */
+.epigraph {
+  text-align: center;
+  padding: 3.2rem 1.5rem;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin: 3.5rem 0;
+}
+.epigraph p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--sepia);
+  line-height: 1.68;
+  margin: 0 0 0.45em;
+  text-align: center;
+}
+.epigraph p:first-child::first-letter { all: unset; }
+.epigraph p::first-letter            { all: unset; }
+.epigraph .attr {
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  color: var(--dust);
+  text-transform: uppercase;
+  font-style: normal;
+  margin-top: 0.8rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PART DIVIDER
+═══════════════════════════════════════════════════════════════ */
+.part-break, .part-divider {
+  padding: 6rem 0 2.5rem;
+  text-align: center;
+}
+.part-break .part-label,
+.part-divider .part-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--sepia);
+  opacity: 0.6;
+}
+.part-break h2,
+.part-divider h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--ink);
+  line-height: 1.18;
+  margin-top: 0.65rem;
+}
+.part-break .part-ornament,
+.part-divider .ornament {
+  color: var(--sepia);
+  opacity: 0.28;
+  font-size: 1rem;
+  letter-spacing: 0.55em;
+  margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHAPTER
+═══════════════════════════════════════════════════════════════ */
+.chapter {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--divider);
+}
+.chapter:last-of-type { border-bottom: none; }
+
+.epilogue { padding: 5rem 0; }
+
+/* Chapter metadata */
+.chapter-header,
+.chapter-meta {
+  margin-bottom: 2.8rem;
+}
+.chapter-number,
+.ch-num,
+.ch-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--sepia);
+  opacity: 0.55;
+  margin-bottom: 0.5rem;
+}
+.chapter-title,
+.chapter-meta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.7rem, 3.5vw, 2.1rem);
+  line-height: 1.22;
+  color: var(--ink);
+}
+.chapter-location,
+.location {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--rain);
+  margin-top: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INTERLUDE
+═══════════════════════════════════════════════════════════════ */
+.interlude {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--divider);
+}
+.interlude-inner,
+.interlude-box {
+  background: rgba(140,111,72,0.05);
+  border-left: 3px solid var(--sepia);
+  padding: 2.5rem 2rem 2.5rem 2.2rem;
+}
+.interlude-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--sepia);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+.interlude-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.55rem);
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+  line-height: 1.28;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY — PARAGRAPHS
+═══════════════════════════════════════════════════════════════ */
+p {
+  margin-bottom: 1.55em;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Drop cap — ONLY the first p directly inside .chapter or .interlude */
+.chapter > p:first-of-type::first-letter,
+.interlude-inner > p:first-of-type::first-letter,
+.interlude-box > p:first-of-type::first-letter,
+.epilogue > p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 4em;
+  float: left;
+  line-height: 0.78;
+  margin: 0.1em 0.1em 0 0;
+  color: var(--sepia);
+}
+.no-drop::first-letter { all: unset; }
+
+em { font-style: italic; color: #2e2318; }
+
+/* ═══════════════════════════════════════════════════════════════
+   THOUGHT BLOCK
+═══════════════════════════════════════════════════════════════ */
+.thought {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05em;
+  color: #4e4030;
+  margin: 2.2em 0;
+  padding: 1.1em 1.4em 1.1em 1.7em;
+  border-left: 2px solid var(--dust);
+  background: var(--thought-bg);
+  line-height: 1.8;
+}
+.thought p              { margin: 0 0 0.72em; text-align: left; }
+.thought p:last-child   { margin: 0; }
+.thought p::first-letter { all: unset; }
+
+/* ═══════════════════════════════════════════════════════════════
+   DIALOGUE
+═══════════════════════════════════════════════════════════════ */
+.dialogue              { margin: 1.6em 0; }
+.dialogue p            { margin-bottom: 0.62em; text-indent: 0; text-align: left; }
+.dialogue p::first-letter { all: unset; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION BREAK
+═══════════════════════════════════════════════════════════════ */
+.section-break, .brk {
+  text-align: center;
+  margin: 2.8rem 0;
+  color: var(--sepia);
+  opacity: 0.3;
+  letter-spacing: 0.65em;
+  font-size: 0.85rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHAPTER-END REFLECTION
+═══════════════════════════════════════════════════════════════ */
+.chapter-end, .ch-end {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.04rem;
+  color: var(--sepia);
+  text-align: center;
+  line-height: 1.75;
+  padding-top: 2.5rem;
+  opacity: 0.88;
+}
+.chapter-end::before,
+.ch-end::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: var(--sepia);
+  opacity: 0.32;
+  margin: 0 auto 1.8rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL POEM (Epilogue ending)
+═══════════════════════════════════════════════════════════════ */
+.final-poem {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--sepia);
+  text-align: center;
+  line-height: 1.88;
+  padding: 3rem 1rem;
+  opacity: 0.9;
+}
+.final-poem::before {
+  content: '';
+  display: block;
+  width: 75px;
+  height: 1px;
+  background: var(--sepia);
+  opacity: 0.28;
+  margin: 0 auto 2.5rem;
+}
+.final-poem::after {
+  content: '';
+  display: block;
+  width: 75px;
+  height: 1px;
+  background: var(--sepia);
+  opacity: 0.28;
+  margin: 2.5rem auto 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL FOOTER
+═══════════════════════════════════════════════════════════════ */
+.book-footer-final {
+  background: #111008;
+  color: var(--sepia);
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  position: relative;
+  overflow: hidden;
+}
+.book-footer-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(140,111,72,0.14) 0%, transparent 70%);
+}
+.book-footer-final p           { position: relative; z-index: 2; margin: 0 0 0.5em; text-align: center; }
+.book-footer-final p::first-letter { all: unset; }
+.book-footer-final .end-label  {
+  font-size: 0.72rem; letter-spacing: 0.42em; text-transform: uppercase;
+  opacity: 0.38; margin-bottom: 2rem; font-style: normal;
+  display: block; position: relative; z-index: 2;
+}
+.book-footer-final .manuscript-note {
+  font-size: 0.75rem; letter-spacing: 0.14em; opacity: 0.38;
+  margin-top: 2.5rem; font-style: normal;
+  position: relative; z-index: 2; display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HIDE UTILITY ELEMENTS
+═══════════════════════════════════════════════════════════════ */
+.wc-chip,
+.book-header,
+.part-badge,
+.series-label,
+.scroll-hint-part,
+.final-note {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE FIRST
+   The .book container handles ALL centering at every breakpoint.
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  :root {
+    --page-pad: 1.25rem;
+  }
+  html { font-size: 16px; }
+  .cover-title { font-size: 2.4rem; }
+  .chapter-meta h2,
+  .chapter-title { font-size: 1.55rem; }
+  .chapter > p:first-of-type::first-letter,
+  .interlude-inner > p:first-of-type::first-letter,
+  .interlude-box > p:first-of-type::first-letter { font-size: 3.4em; }
+  .thought { padding: 1em 1em 1em 1.2em; }
+  .interlude-inner, .interlude-box { padding: 1.8rem 1.2rem 1.8rem 1.5rem; }
+  p { text-align: left; hyphens: none; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  :root { --page-pad: 1.5rem; }
+  html { font-size: 17px; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root { --page-pad: 2rem; }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --page-width: 700px;
+    --page-pad: 2rem;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CENTERING SAFETY NET — ensures ALL content stays in column
+   regardless of source structure or nesting level
+═══════════════════════════════════════════════════════════════ */
+
+/* Every direct child of body that is NOT the cover or footer
+   gets centered column treatment */
+body > div:not(.cover):not(.progress-strip):not(.book-footer-final) {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  box-sizing: border-box;
+}
+
+/* Force all chapter and interlude blocks to honor column width */
+.chapter,
+.epilogue,
+.interlude,
+.part-break,
+.part-divider,
+.epigraph {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent any paragraph from breaking out */
+p, .thought, .dialogue, .chapter-end, .ch-end, .final-poem {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 </style>
 </head>
 <body>
 
+<!-- ── READING PROGRESS ──────────────────────────────────── -->
 <div class="progress-strip"><div class="progress-fill" id="prog"></div></div>
 
-<!-- COVER -->
+<!-- ══════════════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════════════ -->
 <div class="cover">
   <div class="cover-rain"></div>
-  <div class="cover-epigraph">A Novel</div>
+  <div class="cover-label">A Novel</div>
   <h1 class="cover-title">
     The Season Between Us
     <span>or, what I kept instead of you</span>
   </h1>
-  <div class="cover-divider"></div>
-  <p class="cover-subtitle">
+  <div class="cover-rule"></div>
+  <div class="cover-author">Ameer Ali</div>
+  <p class="cover-tagline">
     "Some people arrive like monsoon — changing everything — and leave before you learn how to stop needing the rain."
   </p>
-<div class="poet-name"> Ameer Ali </div>
+  <div class="cover-scroll">Scroll to read ↓</div>
 </div>
 
-<!-- BOOK BODY -->
-
+<!-- ══════════════════════════════════════════════════════════
+     BOOK BODY — single centered container
+══════════════════════════════════════════════════════════ -->
 <div class="book">
 
-<!-- FRONT EPIGRAPH -->
+  <!-- Front epigraphs -->
   <div class="epigraph" style="margin-top:5rem;">
     <p>Woh jo thhe woh aa gaye woh jo na aa sake / unka intezaar hai</p>
     <p>Those who came, have come. For those who could not — the wait remains.</p>
-    <p class="epigraph-author">— Mirza Ghalib</p>
+    <p class="attr">— Mirza Ghalib</p>
   </div>
 
   <div class="epigraph">
     <p>It is a terrible thing to be half in love with someone who is entirely themselves.</p>
-    <p class="epigraph-author">— unnamed, notebook margin, Hyderabad</p>
+    <p class="attr">— unnamed, notebook margin, Hyderabad</p>
   </div>
 
-  <!-- PART I -->
+  <!-- ══════════ PART ONE ══════════ -->
   <div class="part-break">
     <div class="part-label">Part One</div>
-    <h2 class="part-title">The Grammar of Small Things</h2>
+    <h2>The Grammar of Small Things</h2>
     <div class="part-ornament">· · ·</div>
   </div>
 
-  <!-- CHAPTER 1 -->
+  <!-- Chapter I -->
   <div class="chapter">
     <div class="chapter-header">
       <div class="chapter-number">Chapter I</div>
@@ -125,32 +659,25 @@
     </div>
 
     <p>The city was still deciding whether to wake up.</p>
-
-    <p>Arjun Varma had been awake since five — not from purpose, but from the specific restlessness that comes when sleep retreats without explanation, leaving you alone with the dark ceiling and the low hum of an inverter somewhere in the building. He lay still for eleven minutes, which he knew because he counted them, the way he counted everything he couldn't control: the seconds between traffic signals, the floors a lift skipped, the days since he'd last eaten something he hadn't planned.</p>
-
-    <p>He was twenty-eight years old and lived alone in a 1BHK flat on the third floor of a building called Skyline Residency, which had neither sky nor line worth speaking of, only a water tank on the roof and a neem tree that scraped the window in October winds. He worked in urban infrastructure consulting — long documents, longer meetings, the slow architecture of systems that no one notices until they fail. He was good at his job the way certain people are good at things they didn't choose: quietly, without sentiment.</p>
-
+    <p>This was the hour Arjun Varma liked best, and he had never admitted this to anyone because it would have required explaining too much — the particular quality of the dark at five-fifty in the morning, the way the street below his building held its breath before the autorickshaws started, the way the chai stall on the corner had its first fire going but no customers yet, the tea man in his own private ritual, moving between vessels with the unhurried competence of someone who has done the same thing every morning for twenty years and found in that repetition not boredom but a kind of prayer.</p>
+    <p>He had been awake since five. Not from purpose — he had no early meeting, no particular reason — but from the specific restlessness that comes when sleep retreats without explanation, when the body decides it has taken what it needs and the mind, ungoverned, begins its own proceedings. He had lain still for eleven minutes, watching the ceiling fan's shadow revolve in the faint light that seeped under the curtain from the street. He counted the revolutions without deciding to. Forty-seven. Forty-eight. The fan needed oiling; there was a faint irregularity in its rotation, a slight drag at the same point in each revolution, like a clock with a damaged tooth in its mechanism. He had been meaning to do something about this for six weeks. He added it to the mental list he kept of things he was meaning to do, which had by now grown into a document of some psychological complexity — a portrait, perhaps, of everything he deferred.</p>
+    <p>He was twenty-eight years old.</p>
+    <p>He lived alone in a 1BHK flat on the third floor of a building called Skyline Residency, which had neither sky nor line worth speaking of, only a water tank on the roof painted the municipal grey of all water tanks, and a neem tree in the small courtyard that scraped the window in October winds with a sound like someone thinking about knocking and deciding against it. The flat was clean in the way of flats occupied by people who live alone and have decided that orderliness is the one area in which they will not capitulate to inertia. His books were organised by a personal system that made sense to him and would have confused anyone else: by the emotional register in which he'd read them, the year of his life they belonged to, the person he'd been when they'd mattered. The kitchen had exactly the things in it he used and nothing decorative. The walls had three things: a framed print of the Golconda Fort at dusk that he'd bought at a street stall in his first month in the city, a cork board with project timelines, and a small mirror near the door positioned for checking one's collar on the way out and nothing more.</p>
+    <p>He worked in urban infrastructure consulting. His firm, Meridian Urban Solutions, occupied three floors of a glass building in HITEC City and had forty-seven employees and a client roster that included the Greater Hyderabad Municipal Corporation and several private developers whose ambitions exceeded their architectural sensitivity. Arjun was a mid-level consultant — not junior enough to be assigned only execution, not senior enough to be insulated from it. He was good at his job in the way that certain people are good at things they didn't consciously choose: quietly, without the performance of expertise, with a thoroughness that his colleagues interpreted as diligence and that he knew was closer to anxiety — the anxiety of a person who finds ambiguity uncomfortable and resolves it through preparation.</p>
+    <p>He was from Vizag — Visakhapatnam, the port city on the Bay of Bengal where the Eastern Ghats descended to the sea with a drama that Hyderabad, for all its history, couldn't match geographically. His parents still lived there, in the house where he and his younger sister Priya had grown up. His father was a retired civil engineer who regarded Arjun's move to infrastructure consulting as an acceptable if somewhat reduced version of doing something real. His mother — Lakshmi Varma, sixty-one, a retired school principal — rang every second Sunday and treated the calls as comprehensive audits: health, diet, sleep, social life, career trajectory, proximity to marriage.</p>
     <p>At 5:48 he got out of bed.</p>
-
-    <p>By 6:04 he was at the gym on Road Number 12, an unremarkable basement facility with fluorescent lights and the particular smell of rubber and someone else's ambition. He came every weekday because routine was the only religion he'd kept from his structured childhood in Vizag — everything else had shed away with age, with distance, with the soft erosion of believing in things. He put in his earphones. He did not shuffle. The playlist was fixed and he knew every song's position the way he knew the street corners of this neighbourhood: not with affection, but with the calm competence of familiarity.</p>
-
+    <p>By 6:04 he was at the gym on Road Number 12, an unremarkable basement facility with fluorescent lights and the particular smell of rubber and someone else's ambition. He came every weekday because routine was the only religion he'd kept from his structured childhood. He put in his earphones. He did not shuffle. The playlist was fixed and he knew every song's position the way he knew the street corners of this neighbourhood: not with affection, but with the calm competence of familiarity.</p>
     <p>She was on the treadmill when he arrived.</p>
-
     <p>He didn't notice her immediately — not the way you notice something that demands attention. He noticed her the way you notice a sentence underlined in someone else's book: with the faint sense that significance has been marked by a hand that isn't yours. She was running at a steady pace, wearing a faded olive T-shirt and dark shorts, hair pulled back in a way that looked like she'd stopped caring about it exactly the right amount. She had earphones in. She was not looking at her phone. She was looking at the wall, or at something much further away than the wall.</p>
 
-    <p>Arjun settled into his warmup. He did not look at her again — or rather, he attempted not to. But the gym was small, and certain presences in small spaces become unavoidable the way a high note in a quiet room does: you don't watch it, you simply can't not hear it.</p>
-
-    <p>She left twenty minutes before he did. She removed her earphones. She wiped down the treadmill handles with the concentration of someone who had learned fastidiousness as a private practice, not a public performance. She picked up a water bottle — steel, scratched at the base, the kind of scratch that meant months of use — and walked out without looking at anyone, including, very deliberately, herself in the mirror.</p>
-
     <div class="thought">
-      He thought: who runs without looking at themselves?<br>
-      He thought: who has already made peace with what they look like?
+      <p>He thought: who runs without looking at themselves?</p>
+      <p>He thought: who has already made peace with what they look like?</p>
     </div>
 
+    <p>She left twenty minutes before he did. She removed her earphones. She wiped down the treadmill handles with the concentration of someone who had learned fastidiousness as a private practice, not a public performance. She picked up a water bottle — steel, scratched at the base, the kind of scratch that meant months of use — and walked out without looking at anyone, including, very deliberately, herself in the mirror.</p>
     <p>He finished his workout. He walked home through the morning that was now fully committed to being a morning — autorickshaws, a chai stall with its first cloud of steam, two old men on a bench doing the companionable work of not speaking. The neem tree in front of his building had dropped a small branch in the night. He stepped over it.</p>
-
     <p>By 8:15 he was at his desk with black coffee and a report on stormwater drainage in the Secunderabad zone.</p>
-
     <p>He thought about the olive T-shirt once, briefly, the way you think about something before you realise you're thinking about it — and then he didn't think about it again, or told himself he didn't, which is an entirely different thing.</p>
 
     <div class="chapter-end">
@@ -159,7 +686,7 @@
     </div>
   </div>
 
-  <!-- CHAPTER 2 -->
+  <!-- Chapter II -->
   <div class="chapter">
     <div class="chapter-header">
       <div class="chapter-number">Chapter II</div>
@@ -168,38 +695,22 @@
     </div>
 
     <p>He saw her again in the rain, which seemed unnecessary.</p>
-
     <p>He had come to the old Irani café on a Saturday because he was writing a report on heritage conservation and wanted to sit inside something worth conserving. The café was eighty years old, give or take a decade of polite uncertainty. Its walls were the yellow of turmeric left too long in sun, its chairs the specific red vinyl that knows how to hold a person without promising comfort. It smelled of bun-maska and rose syrup and the kind of time that accumulates in places where no one hurries.</p>
-
-    <p>Outside, it was raining in the way Hyderabad sometimes rains in October — sudden, thorough, without warning, as if the sky had made a private decision. The street filled with the organized chaos of people finding shelter: a man with a tray of bananas held above his head, two college girls sharing a dupatta, a dog moving with philosophical calm from awning to awning.</p>
-
+    <p>Outside, it was raining in the way Hyderabad sometimes rains in October — sudden, thorough, without warning, as if the sky had made a private decision. The street filled with the organised chaos of people finding shelter: a man with a tray of bananas held above his head, two college girls sharing a dupatta, a dog moving with philosophical calm from awning to awning.</p>
     <p>She was at the far corner table.</p>
-
-    <p>He recognized her first by posture — there was something in how she sat that he had filed away without meaning to, a slight leftward lean, the way she held a book open with one hand while the other held her chai, the rim barely touching her lower lip, not drinking, just resting there as though she'd forgotten both the chai and the book in the middle of some larger thought. She was reading Mahasweta Devi. He noticed this because he moved close enough to notice it, which required him to cross the room to a table two away from hers, which was not the nearest available table.</p>
-
+    <p>He recognized her first by posture — there was something in how she sat that he had filed away without meaning to, a slight leftward lean, the way she held a book open with one hand while the other held her chai, the rim barely touching her lower lip, not drinking, just resting there as though she'd forgotten both the chai and the book in the middle of some larger thought. She was reading Mahasweta Devi. He noticed this because he moved close enough to notice it.</p>
     <p>He acknowledged this to himself without judgment.</p>
-
     <p>For forty minutes they occupied the same small cave of sound — rain on old glass, the clatter of a tray, the owner's radio playing something classical and unidentifiable, a ceiling fan's irregular complaint. She read. He wrote notes in his field journal and tried to remember what a heritage-worthy ceiling looked like, which should have been simple given that he was sitting under one.</p>
-
     <p>Then her phone rang. She looked at the screen. She did not answer. She turned it face-down — not with irritation, but with the measured calm of someone who has made a deliberate choice between two things and is comfortable with the weight of it. She went back to reading.</p>
 
     <div class="thought">
-      He thought: that face. He had seen that face before — not hers specifically, but that expression. His mother's face, sometimes, in the kitchen on Sunday mornings. The face of someone who has recently decided something important and is quietly living inside the decision.
+      <p>He thought: that face. He had seen that expression before — not hers specifically, but that expression. His mother's face, sometimes, in the kitchen on Sunday mornings. The face of someone who has recently decided something important and is quietly living inside the decision.</p>
     </div>
 
     <p>The rain thinned. She finished her chai, tucked the book into a canvas bag that had the logo of a museum he didn't recognize, and paid at the counter. The owner said something in Telugu and she smiled — a real smile, narrow and unhurried, the kind that doesn't know it's happening — and left.</p>
-
     <p>Arjun looked at the table she'd vacated. Her cup sat there, still half-full. He didn't know why this bothered him or why he kept looking at it — the unfinished chai, the still-warm cup, the small evidence of someone who had been here and was no longer, leaving behind a thing incomplete.</p>
-
-    <p>He wrote in his field journal: <em>Heritage conservation is not about preservation. It is about the maintenance of context — keeping things in relationship to what gave them meaning.</em></p>
-
-    <p>He was supposed to be writing about buildings.</p>
-
-    <div class="section-break">· · ·</div>
-
-    <p>He asked the owner about her, later, on his way out. Not directly. He said, that woman who was sitting there — does she come often? The owner looked at him with the particular wisdom of a man who has watched sixty years of longing pass through his establishment and said, <em>"Haan bhai. Shanivar ko aati hai. Hamesha akhele."</em> She comes on Saturdays. Always alone.</p>
-
-    <p>Always alone, Arjun repeated to himself, walking into the cleared air of the post-rain street, where the stones gleamed and the crow on the electricity wire had ruffled its feathers back into perfect black order. He wasn't sure what he meant by repeating it. He wasn't sure if he meant: <em>how sad</em>, or: <em>how like her</em>, or: <em>how I understand that completely</em>.</p>
+    <p>He asked the owner about her on his way out. The owner looked at him with the particular wisdom of a man who has watched sixty years of longing pass through his establishment and said: <em>"Haan bhai. Shanivar ko aati hai. Hamesha akhele."</em> She comes on Saturdays. Always alone.</p>
+    <p><em>Always alone.</em> He repeated it to himself, walking into the cleared air of the post-rain street, where the stones gleamed and the crow on the electricity wire had ruffled its feathers back into perfect black order. He wasn't sure if he meant: <em>how sad</em>, or: <em>how like her</em>, or: <em>how I understand that completely</em>.</p>
 
     <div class="chapter-end">
       A name. He didn't have a name yet.<br>
@@ -208,6 +719,7 @@
       and didn't answer her phone in the rain.
     </div>
   </div>
+
 
 
 <!-- Recap epigraph -->
@@ -219,6 +731,14 @@
   <!-- ══════════════════════════════════════════
        CHAPTER THREE
   ══════════════════════════════════════════ -->
+  
+  <!-- ══════════ PART TWO ══════════ -->
+  <div class="part-break">
+    <div class="part-label">Part Two</div>
+    <h2>Architecture of the Unspoken</h2>
+    <div class="part-ornament">· · ·</div>
+  </div>
+
   <div class="chapter">
     <div class="chapter-meta">
       <div class="ch-number">Chapter Three</div>
@@ -230,7 +750,7 @@
 
     <p>It was a Tuesday, three weeks into November, and the morning had arrived with a new quality — the first real cold of the Hyderabad season, which was not cold by any northern standard but was noticeable, a freshness in the air at five-forty-five that made the walk to the gym feel purposeful rather than merely habitual. He had added a layer — the thin cotton jacket he kept on the hook by the door — and had felt, putting it on, the small domestic satisfaction of a body that knows what it needs and has it available. This was one of the quiet pleasures of living alone: the total alignment between what you wanted and what the flat contained, no negotiation, no compromise, the environment organised entirely around the single occupant's preferences. He had made peace with the trade-off this represented and had stopped second-guessing the peace.</p>
 
-    <p>The gym at this hour was known to him the way all things known through repetition are known — not with active attention but with the peripheral certainty of the familiar. Cyrus Irani, a Parsi man in his mid-fifties who ran an insurance agency on Nampally High Road and treated the gym with the same methodical gravity he brought to everything, at the squat rack. The two flatmates at their adjacent benches, their ongoing technical disagreement continued from where Tuesday's session had apparently left it, something about a deployment architecture. Pramod circulating with the cheerful authority of a man in his element. The fluorescent tubes with their split-second flicker at start-up. The rubber matting's specific resistance underfoot. The mirror along the south wall, which reflected back the room in its entirety and in which he had learned to see without looking, the way you learn to use peripheral vision in traffic.</p>
+    <p>The gym at this hour was known to him the way all things known through repetition are known — not with active attention but with the peripheral certainty of the familiar. Cyrus, the insurance man, at the squat rack. The two flatmates at their adjacent benches, their ongoing technical disagreement continued from where Tuesday's session had apparently left it, something about a deployment architecture. Pramod circulating with the cheerful authority of a man in his element. The fluorescent tubes with their split-second flicker at start-up. The rubber matting's specific resistance underfoot. The mirror along the south wall, which reflected back the room in its entirety and in which he had learned to see without looking, the way you learn to use peripheral vision in traffic.</p>
 
     <p>She was already on the treadmill when he arrived.</p>
 
@@ -255,9 +775,9 @@
 
     <p>He continued his own set, which required him to look directly at the weight stack and not at the person two machines over, which was satisfactorily straightforward mechanically and somewhat more complicated internally.</p>
 
-    <p>He turned the word over in his mind the way you hold a coin found in the street — uncertain of its origin, certain of its particularity. In Arabic, <em>zara</em> meant blossom, radiance, the one who flowers — a name from the tradition of Urdu and Persian verse that had flourished in Hyderabad's courts for four centuries, the language of the ghazals and marsias that had been composed in the lanes near Charminar and had never left them. It was a name that felt like it belonged to the old city, to the families who had been here before the word <em>heritage</em> was needed to protect what they simply lived inside. It was a name that carried history lightly, the way old buildings carried their age — not as weight but as depth.</p>
+    <p>He turned the word over in his mind the way you hold a coin found in the street — uncertain of its origin, certain of its particularity. In Arabic, <em>zara</em> meant blossom, radiance, the one who flowers — a name from the tradition of Urdu and Persian verse that had flourished in Hyderabad's courts for four centuries, the language of the ghazals and marsias composed in the lanes near Charminar and never fully left them. A name that felt like it belonged to the old city, to the families who had been here before the word <em>heritage</em> was needed to protect what they simply lived inside. A name that carried history lightly, the way old buildings carried their age — not as weight but as depth.</p>
 
-    <p>He thought: of course. Of course that's her name. A name from Hyderabad's other language — the language beneath the language, the Persian and Arabic that had been woven into Telugu and Urdu and the Deccani vernacular for four hundred years. A name that felt like it belonged to the old city, to the lanes near Charminar, to the families who had been here before the word "heritage" was needed to protect what they simply lived inside.</p>
+    <p>He thought: of course. Of course that's her name.</p>
 
     <p>He thought: that's a significant amount of poetic attribution to apply to a stranger based on the evidence available.</p>
 
@@ -530,7 +1050,7 @@
 
     <p>He had her number because she had offered it practically, the way practical people offer things: without ceremony, because ceremony is only required when the offering is weighted and she had decided, or appeared to have decided, to keep the transaction light.</p>
 
-    <p>She was documenting a set of buildings in the Secunderabad cantonment zone — precisely the zone he'd visited in November, the officers' mess with the iron balustrade, which he had not mentioned to her and now found himself wanting to mention with the slight awkwardness of a person holding an unintentional coincidence. She needed a contact at the cantonment conservancy office who could facilitate access to the restricted sections of the heritage precinct. He knew the contact — a man named Farrukh — Farrukh Hussain, whose family had lived in the cantonment area for three generations and who had grown up knowing these buildings from the outside before spending eighteen years learning their interiors — a conservancy officer who combined a genuine passion for the buildings under his care with an administrative efficiency that made him, in Arjun's professional experience, rare and valuable. He had mentioned Farrukh in passing during a Monday morning exchange about the cantonment zone.</p>
+    <p>She was documenting a set of buildings in the Secunderabad cantonment zone — precisely the zone he'd visited in November, the officers' mess with the iron balustrade, which he had not mentioned to her and now found himself wanting to mention with the slight awkwardness of a person holding an unintentional coincidence. She needed a contact at the cantonment conservancy office who could facilitate access to the restricted sections of the heritage precinct. He knew the contact — a man named Farrukh Hussain — whose family had lived in the cantonment area for three generations — a conservancy officer who had been in the post for eighteen years and who combined a genuine passion for the buildings under his care with an administrative efficiency that made him, in Arjun's professional experience, rare and valuable. He had mentioned Farrukh in passing during a Monday morning exchange about the cantonment zone.</p>
 
     <p>She had said: "Can I get his number from you?"</p>
 
@@ -749,7 +1269,6 @@
        WORD COUNT MARKER
   ══════════════════════════════════════════ -->
 
-
 <div class="epigraph">
     <p>She gave warmth in fragments, never completely.<br>
     Her silence sometimes said more than conversations.</p>
@@ -876,7 +1395,7 @@
   </div>
 
   <!-- ═══════════════════════════════════════
-       INTERLUDE II: ZARA / SARA
+       INTERLUDE II: NILA / MEERA
   ═══════════════════════════════════════ -->
   <div class="interlude">
     <div class="interlude-box">
@@ -1300,8 +1819,7 @@
     </div>
   </div>
 
-</div>
-
+  <!-- END OF PART THREE MARKER -->
 
 <div class="epigraph">
     <p>Kuch log mausam ki tarah aate hain —<br>
@@ -1540,7 +2058,7 @@
 
       <p>He had not named the playlist. He had titled it, tentatively, in the app's interface: <em>for when the light is right.</em> He changed this after a week to: <em>unnamed.</em> He changed it again, on a night in June, to: <em>Zara</em>.</p>
 
-      <p>He looked at the name on the screen for a long time. He thought of her name — <em>zara</em>, blossom, the one who shines — and what it meant that he had given it to the place where he kept everything she had opened in him. Then he changed it back to <em>unnamed</em>.</p>
+      <p>He looked at the name on the screen for a long time. Then he changed it back to <em>unnamed</em>.</p>
 
       <p>But he had looked at it with her name on it for long enough to know that the name was accurate, that the playlist was hers in the sense that it had been assembled in her company even when she was not present, that it was the record of what she had opened in him — the register of music, of feeling through form, of the kind of attention that went to art the way it went to old buildings, looking for what the surface held rather than what it displayed.</p>
 
@@ -1815,8 +2333,8 @@
       the name said first.
     </div>
   </div>
-</div>
 
+  <!-- END OF PART FOUR -->
 
 <div class="epigraph">
     <p>Some structures are not meant to be demolished.<br>
@@ -1934,7 +2452,7 @@
 
     <p>On the third treadmill. At 8.2. In the faded olive T-shirt — the first one, the original, the one he had catalogued before he knew her name. He had not seen her in it since the early months. He did not know if she had chosen it deliberately or if it was the clean available thing this morning or if the distinction mattered. He decided it didn't matter and that it did, simultaneously, which was how most things with her worked.</p>
 
-    <p>The gym received him as it had received him every weekday morning for two years: the fluorescent flicker, the rubber smell, the specific resistance of the matting underfoot, Pramod in his compression tights doing something with a foam roller in the corner with the concentrated self-application of a man who believed entirely in his own methodology. Cyrus at the squat rack — still the same Parsi insurance man from Nampally, still the same unhurried purpose. The two flatmates were not there today — some change in their schedule, or perhaps they had graduated and moved on and he hadn't noticed the departure, which was possible, which was how most people moved through each other's lives.</p>
+    <p>The gym received him as it had received him every weekday morning for two years: the fluorescent flicker, the rubber smell, the specific resistance of the matting underfoot, Pramod in his compression tights doing something with a foam roller in the corner with the concentrated self-application of a man who believed entirely in his own methodology. Cyrus at the squat rack, the same insurance man, the same unhurried purpose. The two flatmates were not there today — some change in their schedule, or perhaps they had graduated and moved on and he hadn't noticed the departure, which was possible, which was how most people moved through each other's lives.</p>
 
     <p>He began his warmup. He did not look at the third treadmill or did not look in a way that could be observed. He put both earphones in — the full playlist, the unnamed-then-Zara-then-unnamed one, starting from the beginning, the instrumental piece that opened it, the one that began and did not complete, the melody that lived in the approach to resolution. He let it play through the warmup and into the first set and he was present in the work with the specific quality of presence that the last day of something produced: total, unhurried, fully inhabited.</p>
 
@@ -2169,8 +2687,6 @@
 
 </div>
 
-</div>
-
 <!-- FINAL FOOTER -->
 <div class="book-footer-final">
   <span class="end-label">The Season Between Us · Complete</span>
@@ -2182,19 +2698,15 @@
   <p><em>the wait remains.</em></p>
   <p>&nbsp;</p>
   <p>— Mirza Ghalib</p>
-  <span class="manuscript-note">
-    Complete expanded manuscript · Parts I–V · ~52,000 words<br>
-    Hyderabad–Pune · One year, fifteen months, and the seasons between
-  </span>
 </div>
 
 <script>
+  // Reading progress
   window.addEventListener('scroll', () => {
     const d = document.documentElement;
     const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
     document.getElementById('prog').style.width = Math.min(pct, 100) + '%';
   });
 </script>
-
 </body>
 </html>
